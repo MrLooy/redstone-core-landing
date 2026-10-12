@@ -1,0 +1,13 @@
+# RedstoneCore — red de seguridad para archivos de credenciales.
+#
+# En servidores Apache con AllowOverride habilitado, este bloque impide servir
+# el archivo .env por la web (403). En Ubuntu el default es `AllowOverride None`,
+# en cuyo caso este archivo se IGNORA SIN EFECTOS y la protección real debe ir
+# en el VirtualHost (ver el bloque final del mensaje de implementación).
+# Por diseño este .htaccess NO rompe el sitio: solo niega acceso a .env.
+
+# Bloquea la descarga de cualquier archivo cuyo nombre empiece por ".env"
+# (p. ej. .env, .env.local, etc.). Require all denied es sintaxis Apache 2.4.
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>

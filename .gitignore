@@ -1,0 +1,7 @@
+# RedstoneCore — files that must never be versioned
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+node_modules/
